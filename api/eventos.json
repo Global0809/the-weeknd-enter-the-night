@@ -14,7 +14,7 @@
       ],
       "url": "/the-weeknd-enter-the-night/galeria/after-hours",
       "imagen": "/the-weeknd-enter-the-night/assets/posters/after-hours.webp",
-      "imagenPagina": "/the-weeknd-enter-the-night/assets/albums/after-hours.jpg"
+      "imagenPagina": "/the-weeknd-enter-the-night/assets/posters/after-hours.webp"
     },
     {
       "id": "dawn-fm",
@@ -29,7 +29,7 @@
       ],
       "url": "/the-weeknd-enter-the-night/galeria/dawn-fm",
       "imagen": "/the-weeknd-enter-the-night/assets/posters/dawn-fm.webp",
-      "imagenPagina": "/the-weeknd-enter-the-night/assets/albums/dawn-fm.jpg"
+      "imagenPagina": "/the-weeknd-enter-the-night/assets/posters/dawn-fm.webp"
     },
     {
       "id": "hurry-up-tomorrow",
@@ -44,7 +44,7 @@
       ],
       "url": "/the-weeknd-enter-the-night/galeria/hurry-up-tomorrow",
       "imagen": "/the-weeknd-enter-the-night/assets/posters/hurry-up-tomorrow.webp",
-      "imagenPagina": "/the-weeknd-enter-the-night/assets/albums/hurry-up-tomorrow.jpg"
+      "imagenPagina": "/the-weeknd-enter-the-night/assets/posters/hurry-up-tomorrow.webp"
     }
   ]
 }
