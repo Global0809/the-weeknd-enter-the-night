@@ -22,8 +22,8 @@
     const panel = document.createElement('section');
     panel.className = 'experience-unavailable';
     panel.hidden = true;
-    panel.setAttribute('aria-label', 'A lighter way into the night');
-    panel.innerHTML = '<h1>ENTER THE NIGHT.</h1><p>This device could not start the 3D scene. Explore the music and visual archive in the lighter edition.</p><a href="/the-weeknd-enter-the-night/discover.html">Open the lighter experience ↗</a>';
+    panel.setAttribute('aria-label', 'A lighter way into the world');
+    panel.innerHTML = '<h1>ENTER THE WORLD.</h1><p>This device could not start the 3D scene. Explore the work and visual archive in the lighter edition.</p><a href="/the-weeknd-enter-the-night/discover.html">Open the lighter experience ↗</a>';
     document.body.append(link, panel);
     const update = () => {
       const rendererFailed = document.documentElement.dataset.sceneFailed === 'true';

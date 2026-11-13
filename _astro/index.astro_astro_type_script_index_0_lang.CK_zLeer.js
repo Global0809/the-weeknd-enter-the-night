@@ -168,14 +168,14 @@ import { i as tn, n as nn, r as rn, t as J } from "./reproductor.K4RbChR4.js";
 import { r as an } from "./menu-events.CcTJfOO4.js";
 // Keep decorative screens still when the visitor requests reduced motion.
 // A decoded frame after the opening fade remains visible without starting playback.
-const weekndVideoMotion = window.matchMedia(`(prefers-reduced-motion: reduce)`);
-const weekndVideoStates = new WeakMap();
-function weekndDecorativePlayback(video, active) {
-  let state = weekndVideoStates.get(video);
+const monumentalVideoMotion = window.matchMedia(`(prefers-reduced-motion: reduce)`);
+const monumentalVideoStates = new WeakMap();
+function monumentalDecorativePlayback(video, active) {
+  let state = monumentalVideoStates.get(video);
   if (!state) {
     state = { active: false, source: null };
     state.apply = () => {
-      if (!weekndVideoMotion.matches) {
+      if (!monumentalVideoMotion.matches) {
         state.source = null;
         state.active ? video.play().catch(() => {}) : video.pause();
         return;
@@ -188,23 +188,23 @@ function weekndDecorativePlayback(video, active) {
       const frame = Number.isFinite(video.duration) ? Math.min(0.85, Math.max(0, video.duration - 0.05)) : 0.85;
       try { video.currentTime = frame; } catch {}
     };
-    state.afterSeek = () => { if (weekndVideoMotion.matches) video.pause(); };
+    state.afterSeek = () => { if (monumentalVideoMotion.matches) video.pause(); };
     state.release = () => {
-      weekndVideoMotion.removeEventListener(`change`, state.apply);
+      monumentalVideoMotion.removeEventListener(`change`, state.apply);
       video.removeEventListener(`loadeddata`, state.apply);
       video.removeEventListener(`seeked`, state.afterSeek);
-      weekndVideoStates.delete(video);
+      monumentalVideoStates.delete(video);
     };
-    weekndVideoStates.set(video, state);
-    weekndVideoMotion.addEventListener(`change`, state.apply);
+    monumentalVideoStates.set(video, state);
+    monumentalVideoMotion.addEventListener(`change`, state.apply);
     video.addEventListener(`loadeddata`, state.apply);
     video.addEventListener(`seeked`, state.afterSeek);
   }
   state.active = active;
   state.apply();
 }
-function weekndReleaseDecorativeVideo(video) {
-  weekndVideoStates.get(video)?.release();
+function monumentalReleaseDecorativeVideo(video) {
+  monumentalVideoStates.get(video)?.release();
 }
 var on = class {
     onSinSonido;
@@ -1349,7 +1349,7 @@ var sr = class t {
     }
     reproducir(e) {
       for (let t of this.videos)
-        t && weekndDecorativePlayback(t, e);
+        t && monumentalDecorativePlayback(t, e);
     }
     setIgnicion(e) {
       this.ignicion = e;
@@ -1537,7 +1537,7 @@ var sr = class t {
         this.texturas.forEach((e) => e?.dispose()),
         (this.texturas.length = 0),
         this.videos.forEach((e) => {
-          (weekndReleaseDecorativeVideo(e), e.pause(), e.removeAttribute(`src`), e.load());
+          (monumentalReleaseDecorativeVideo(e), e.pause(), e.removeAttribute(`src`), e.load());
         }),
         (this.videos.length = 0),
         this.limpiar(!0),
@@ -1821,7 +1821,7 @@ var sr = class t {
         ((n.loop = !0),
           (n.muted = !0),
           (n.defaultMuted = !0),
-          (n.autoplay = !weekndVideoMotion.matches),
+          (n.autoplay = !monumentalVideoMotion.matches),
           (n.playsInline = !0),
           n.setAttribute(`playsinline`, ``),
           n.setAttribute(`muted`, ``),
@@ -1846,7 +1846,7 @@ var sr = class t {
               if (!this.disposed)
                 return (
                   (n.src = e),
-                  weekndDecorativePlayback(n, this.active),
+                  monumentalDecorativePlayback(n, this.active),
                   Promise.race([this.esperarReproducible(n), ar(ir)])
                 );
             }),
@@ -2031,7 +2031,7 @@ var sr = class t {
             (t.href = e.url),
             (t.target = `_blank`),
             (t.rel = `noopener noreferrer`),
-            (t.textContent = `${e.nombre} · ${e.fechaLarga} · Listen to the album`),
+            (t.textContent = `${e.nombre} · ${e.fechaLarga} · Explore the collection`),
             t
           );
         });
@@ -4536,9 +4536,9 @@ var Mi = 1e3,
       }
       this.place();
     }
-    reducedPlayback = weekndVideoMotion.matches;
+    reducedPlayback = monumentalVideoMotion.matches;
     update(e) {
-      const reduced = weekndVideoMotion.matches;
+      const reduced = monumentalVideoMotion.matches;
       if (reduced !== this.reducedPlayback) {
         this.reducedPlayback = reduced;
         this.reproducir();
@@ -4554,7 +4554,7 @@ var Mi = 1e3,
           1,
           this.aparicion + t / Math.max(0.01, this.config.aparicion),
         )),
-        (this.tiempo = weekndVideoMotion.matches ? this.tiempo : (this.tiempo + t) % Mi),
+        (this.tiempo = monumentalVideoMotion.matches ? this.tiempo : (this.tiempo + t) % Mi),
         this.place(e),
         this.resolverPuntero());
     }
@@ -4650,7 +4650,7 @@ var Mi = 1e3,
         this.objetosBlob.forEach((e) => URL.revokeObjectURL(e)),
         (this.objetosBlob.length = 0));
       for (let { video: e, textura: t } of this.fuentes.values())
-        (weekndReleaseDecorativeVideo(e), t.dispose(), e.pause(), e.removeAttribute(`src`), e.load());
+        (monumentalReleaseDecorativeVideo(e), t.dispose(), e.pause(), e.removeAttribute(`src`), e.load());
       (this.fuentes.clear(),
         (this.fuente = null),
         this.malla.geometry.dispose(),
@@ -4782,7 +4782,7 @@ var Mi = 1e3,
       for (let [t, n] of this.fuentes)
         if (!(n === e || !n.preparada)) {
           if (
-            (weekndReleaseDecorativeVideo(n.video),
+            (monumentalReleaseDecorativeVideo(n.video),
             n.textura.dispose(),
             n.video.pause(),
             n.video.removeAttribute(`src`),
@@ -4802,7 +4802,7 @@ var Mi = 1e3,
         this.config.visible &&
         document.visibilityState === `visible`;
       for (let t of this.fuentes.values())
-        weekndDecorativePlayback(t.video, e && t === this.fuente);
+        monumentalDecorativePlayback(t.video, e && t === this.fuente);
     }
     obtenerFuente(e, t) {
       let n = this.fuentes.get(e);
@@ -10556,8 +10556,8 @@ var Go = `/the-weeknd-enter-the-night/_astro/pulsador.BQ51WIjM.glb`,
   ds = 0.2,
   fs = 0.2,
   ps = Ct.venueAddress.toUpperCase().split(` `),
-  ms = [`AFTER HOURS`, `TIL DAWN`, `THE WEEKND`],
-  hs = `@${Ct.instagram.replace(/\/+$/, ``).split(`/`).pop() ?? `theweeknd`}`,
+  ms = [`MAKE IT`, `MONUMENTAL`, `ENTER THE NIGHT`],
+  hs = `MONUMENTAL`,
   gs = [],
   _s = 38,
   Q = 10,
@@ -11736,7 +11736,7 @@ var Es = class extends xt {
           n.load(t, [
             {
               id: `horarios`,
-              nombre: `Connect with The Weeknd`,
+              nombre: `Explore MONUMENTAL`,
               imagen: e,
               url: `/the-weeknd-enter-the-night/contacto`,
             },
